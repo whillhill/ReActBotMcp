@@ -1,0 +1,17 @@
+工具注册和 ReAct 的潜在问题阐述
+1. 工具注册的潜在问题
+当前实现：在 load_from_config 时，add_service 传入的 tools 是空列表（[]），没有主动调用 client.list_tools() 注册工具。
+潜在问题：
+registry 里无法获得每个服务的真实工具列表，API 层 /tools 查询时可能返回空或不准确。
+如果后续需要“工具发现/动态工具注册”，应在每次服务加载后主动调用 await client.list_tools()，并将结果注册到 registry。
+fastmcp 的 Client 支持多服务和工具自动发现，建议在批量注册时遍历每个服务，分别注册其工具。
+2. ReAct 智能体的潜在问题
+当前实现：orchestrator 只保留了 self.react_agent，但未明确如何从 fastmcp Client 获取或初始化 ReAct agent。
+潜在问题：
+如果 fastmcp Client 没有内置 react_agent，或 registry 没有全局工具表，ReAct 智能体无法正常驱动多服务工具调用。
+若需支持全局 ReAct 智能体，需确保有一个 Client 支持 ReAct，并将 registry 赋权给 react_agent。
+多服务场景下，ReAct 智能体需要能访问所有服务的工具和调用接口，建议在 registry 层暴露统一的工具查找和调用能力。
+结论：
+工具注册建议在每次服务加载后主动注册工具，保证 registry 工具表的准确性。
+ReAct 智能体建议明确初始化方式，并确保其能访问 registry 的全局工具和服务调用能力。
+如需我进一步完善工具注册和 ReAct 智能体的初始化/集成方

@@ -1,0 +1,14 @@
+2025-06-09 00:05:38,150 - api.app - INFO - Application startup: Initializing components...
+2025-06-09 00:05:38,151 - plugins.json_mcp - INFO - MCP configuration initialized, using file path: S:\BaiduSyncdisk\2025_4\mcp-mini\mcp-agent\api\mcp.json
+2025-06-09 00:05:38,151 - plugins.json_mcp - WARNING - mcp.json file does not exist: S:\BaiduSyncdisk\2025_4\mcp-mini\mcp-agent\api\mcp.json, will create empty file
+2025-06-09 00:05:38,152 - plugins.json_mcp - INFO - Configuration saved to S:\BaiduSyncdisk\2025_4\mcp-mini\mcp-agent\api\mcp.json
+2025-06-09 00:05:38,152 - plugins.json_mcp - INFO - MCP configuration initialized, using file path: S:\BaiduSyncdisk\2025_4\mcp-mini\mcp-agent\api\mcp.json
+2025-06-09 00:05:38,153 - core.registry - INFO - ServiceRegistry initialized.
+2025-06-09 00:05:38,153 - core.orchestrator - INFO - Setting up MCP Orchestrator...
+2025-06-09 00:05:38,153 - core.orchestrator - INFO - Starting monitoring tasks...
+2025-06-09 00:05:38,153 - core.orchestrator - INFO - Starting heartbeat monitor. Interval: 60.0s
+2025-06-09 00:05:38,154 - core.orchestrator - INFO - Starting reconnection monitor. Interval: 60.0s
+2025-06-09 00:05:38,154 - api.app - INFO - Registering services from mcp.json...
+2025-06-09 00:05:38,154 - plugins.json_mcp - INFO - Configuration loaded from mcp.json
+2025-06-09 00:05:38,155 - api.app - INFO - Services registered: Processed 0 services
+2025-06-09 00:05:38,155 - api.app - INFO - Components initialized and background tasks started.
